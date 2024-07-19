@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>חידון פרשת בלק וחינוך פיננסי</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Rubik', sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .quiz-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 600px;
+            transition: all 0.3s ease;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+        .question {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #34495e;
+            line-height: 1.5;
+        }
+        .answer-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #ecf0f1;
+            border: none;
+            border-radius: 8px;
+            text-align: right;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 16px;
+            color: #2c3e50;
+        }
+        .answer-btn:hover {
+            background-color: #d5dbdb;
+            transform: translateY(-2px);
+        }
+        .answer-btn:active {
+            transform: translateY(0);
+        }
+        .answer-btn.correct {
+            background-color: #27ae60;
+            color: white;
+        }
+        .answer-btn.incorrect {
+            background-color: #e74c3c;
+            color: white;
+        }
+        .explanation {
+            background-color: #e8f4fd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            font-size: 16px;
+            color: #2980b9;
+            line-height: 1.6;
+        }
+        .next-btn, .restart-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 18px;
+        }
+        .next-btn:hover, .restart-btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        .next-btn:active, .restart-btn:active {
+            transform: translateY(0);
+        }
+        .result {
+            text-align: center;
+            font-size: 24px;
+            margin-top: 30px;
+            color: #2c3e50;
+        }
+        @media (max-width: 480px) {
+            .quiz-container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            .question {
+                font-size: 18px;
+            }
+            .answer-btn {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>חידון פרשת בלק וחינוך פיננסי</h1>
+        <div id="quiz"></div>
+        <div id="result" class="result" style="display:none;"></div>
+        <button id="next-btn" class="next-btn" style="display:none;">לשאלה הבאה</button>
+        <button id="restart-btn" class="restart-btn" style="display:none;">התחל מחדש</button>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "מה ניתן ללמוד מניסיונו של בלק לשכור את בלעם בנוגע לחינוך פיננסי?",
+                answers: [
+                    "תמיד כדאי להשקיע את כל הכסף בבת אחת",
+                    "אין צורך לחסוך כלל",
+                    "חשיבות בדיקת ההשקעות לפני ביצוען",
+                    "כסף תמיד מביא אושר"
+                ],
+                correctAnswer: 2,
+                explanation: "כמו שבלק היה צריך לבדוק את אמינותו של בלעם, כך חשוב ללמד ילדים לבדוק ולחקור לפני שמשקיעים או מוציאים כסף.",
+                gameIdea: "משחק 'חוקר קטן': תנו לילד לבחור מוצר שהוא רוצה לקנות. עזרו לו לחקור את המוצר, להשוות מחירים ולקרוא ביקורות לפני שמחליטים אם לקנות."
+            },
+            {
+                question: "כיצד הברכות שבלעם נתן לישראל במקום קללות מתקשרות לגישה חיובית בחינוך פיננסי?",
+                answers: [
+                    "אין קשר בין גישה חיובית לכסף",
+                    "חשיבות ראיית ההזדמנויות הכלכליות",
+                    "עדיף תמיד להיות פסימי בענייני כסף",
+                    "כסף הוא שורש כל הרע"
+                ],
+                correctAnswer: 1,
+                explanation: "כמו שהקללות הפכו לברכות, כך חשוב לפתח גישה חיובית לכסף ולראות הזדמנויות כלכליות.",
+                gameIdea: "משחק 'הזדמנויות בכל מקום': בטיול משפחתי, עודדו את הילדים לזהות הזדמנויות עסקיות קטנות (כמו מכירת לימונדה ביום חם). דונו איך אפשר להפוך רעיונות לפעולות."
+            },
+            {
+                question: "מה מלמד כישלון תוכניתו של בלק על גמישות בתכנון פיננסי?",
+                answers: [
+                    "אין צורך בתכנון פיננסי כלל",
+                    "יש להיצמד לתוכנית המקורית בכל מחיר",
+                    "חשיבות הגמישות והתאמת התוכניות",
+                    "כדאי לשנות תוכניות כל יום"
+                ],
+                correctAnswer: 2,
+                explanation: "כמו שבלק נאלץ לשנות את תוכניותיו, כך חשוב ללמד על גמישות בתכנון פיננסי והיכולת להתאים תוכניות כשהנסיבות משתנות.",
+                gameIdea: "משחק 'תקציב גמיש': תנו לילד תקציב דמיוני לקניות. במהלך ה'קניות', הכניסו שינויים לא צפויים (כמו מבצעים או עליות מחירים) וראו כיצד הילד מתאים את התוכנית."
+            },
+            {
+                question: "איך ניתן לקשר את נאמנותו של בלעם לדבר ה' לחינוך פיננסי אתי?",
+                answers: [
+                    "אין קשר בין אתיקה לכסף",
+                    "כדאי תמיד לשקר כדי להרוויח יותר",
+                    "חשיבות היושרה והאתיקה בעסקים",
+                    "רק אנשים עשירים צריכים להיות אתיים"
+                ],
+                correctAnswer: 2,
+                explanation: "כמו שבלעם נשאר נאמן לדבר ה' למרות הפיתוי, כך חשוב לחנך לערכים של יושרה ואתיקה בעסקים ובהתנהלות פיננסית.",
+                gameIdea: "משחק 'דילמות אתיות': הציגו לילד סיטואציות פיננסיות עם דילמות אתיות (למשל, מציאת כסף ברחוב) ודונו בבחירות הנכונות."
+            },
+            {
+                question: "מה ניתן ללמוד מהשימוש של בלעם באתונו לגבי ניהול משאבים בחינוך פיננסי?",
+                answers: [
+                    "משאבים הם בלתי מוגבלים",
+                    "אין צורך לטפל ברכוש",
+                    "חשיבות הטיפול והשימוש הנבון במשאבים",
+                    "כדאי להחליף משאבים כל הזמן"
+                ],
+                correctAnswer: 2,
+                explanation: "כמו שבלעם השתמש באתונו למסעותיו, כך חשוב ללמד על שימוש נבון, טיפול ותחזוקה של משאבים ורכוש.",
+                gameIdea: "משחק 'המטפל הקטן': תנו לילד אחריות על 'נכס' כלשהו בבית (כמו צמח או חפץ). למדו אותו כיצד לטפל בו, לתחזק אותו ולשמור על ערכו לאורך זמן."
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+
+        const quizElement = document.getElementById('quiz');
+        const resultElement = document.getElementById('result');
+        const nextButton = document.getElementById('next-btn');
+        const restartButton = document.getElementById('restart-btn');
+
+        function loadQuestion() {
+            const question = questions[currentQuestion];
+            let html = `<div class="question">${question.question}</div>`;
+            
+            for (let i = 0; i < question.answers.length; i++) {
+                html += `<button class="answer-btn" onclick="selectAnswer(${i})">${question.answers[i]}</button>`;
+            }
+            
+            quizElement.innerHTML = html;
+            nextButton.style.display = 'none';
+        }
+
+        function selectAnswer(answerIndex) {
+            const question = questions[currentQuestion];
+            const buttons = document.querySelectorAll('.answer-btn');
+            
+            buttons.forEach((button, index) => {
+                button.disabled = true;
+                if (index === question.correctAnswer) {
+                    button.classList.add('correct');
+                } else if (index === answerIndex) {
+                    button.classList.add('incorrect');
+                }
+            });
+
+            if (answerIndex === question.correctAnswer) {
+                score++;
+            }
+
+            let explanationHtml = `
+                <div class="explanation">
+                    <p><strong>הסבר:</strong> ${question.explanation}</p>
+                    <p><strong>רעיון למשחק אב-בן:</strong> ${question.gameIdea}</p>
+                </div>
+            `;
+            quizElement.innerHTML += explanationHtml;
+
+            nextButton.style.display = 'block';
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                loadQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        function showResult() {
+            quizElement.style.display = 'none';
+            nextButton.style.display = 'none';
+            resultElement.style.display = 'block';
+            restartButton.style.display = 'block';
+            
+            resultElement.innerHTML = `הצלחת ב-${score} מתוך ${questions.length} שאלות`;
+        }
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            quizElement.style.display = 'block';
+            resultElement.style.display = 'none';
+            restartButton.style.display = 'none';
+            loadQuestion();
+        }
+
+        nextButton.addEventListener('click', nextQuestion);
+        restartButton.addEventListener('click', restartQuiz);
+
+        loadQuestion();
+    </script>
+</body>
+</html>
